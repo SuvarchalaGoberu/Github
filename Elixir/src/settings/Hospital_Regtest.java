@@ -12,10 +12,12 @@ public class Hospital_Regtest {
 	WebDriver driver;
   @Test
   public void hsptl() {
+	  driver.findElement(By.xpath("//span[contains(text(),'Settings')]")).click();
+	  driver.findElement(By.linkText("Hospital Registration")).click();
 	  driver.findElement(By.xpath("//input[@id='Hospitalregistration_hospital_code']")).sendKeys("1411");
 	  driver.findElement(By.xpath("//input[@id='Hospitalregistration_hospitalname']")).sendKeys("Malik Hospital");
 	  driver.findElement(By.xpath("//textarea[@id='Hospitalregistration_address']")).sendKeys("Haryana");
-	  new Select(driver.findElement(By.xpath("//select[@id='Hospitalregistration_yearofestablishment']"))).selectByIndex(2018);
+	  new Select(driver.findElement(By.xpath("//select[@id='Hospitalregistration_yearofestablishment']"))).selectByIndex("2018");
 	  driver.findElement(By.xpath("//input[@id='Hospitalregistration_country']")).sendKeys("India");
 	  driver.findElement(By.xpath("//input[@id='Hospitalregistration_state']")).sendKeys("HR");
 	  driver.findElement(By.xpath("//textarea[@id='Hospitalregistration_phone']")).sendKeys("9813217444");
@@ -34,6 +36,10 @@ public class Hospital_Regtest {
 	  driver.get(" http://demo.elixiraid.com/index.php");
 	  driver.manage().window().maximize();
 	  System.out.println("Chrome browser is being launched");
+	  driver.findElement(By.xpath("//input[@id='UserLogin_username']")).sendKeys("admin");
+	  driver.findElement(By.xpath("//input[@id='UserLogin_password']")).sendKeys("admin");
+	  driver.findElement(By.xpath("//input[@class='btn bg-teal btn-block']")).click();
+	 
 	  
 	  
   }
